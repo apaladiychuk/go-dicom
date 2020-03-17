@@ -1,8 +1,9 @@
-module github.com/grailbio/go-dicom
+module github.com/apaladiychuk/go-dicom
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/gobwas/glob v0.0.0-20170212200151-51eb1ee00b6d
+	github.com/grailbio/go-dicom v0.0.0-00010101000000-000000000000
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/stretchr/testify v1.2.2
 	golang.org/x/text v0.3.0
@@ -43,3 +44,5 @@ replace github.com/youtube/vitess => ../../youtube/vitess
 replace v.io/x/ref/lib/flags/sitedefaults => ../../../v.io/x/ref/lib/flags/sitedefaults
 
 replace github.com/golang/lint => ../../golang/lint
+
+go 1.13
