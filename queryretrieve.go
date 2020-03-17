@@ -5,8 +5,8 @@ import (
 	"regexp"
 	"strconv"
 
+	"github.com/apaladiychuk/go-dicom/dicomtag"
 	"github.com/gobwas/glob"
-	"github.com/grailbio/go-dicom/dicomtag"
 )
 
 func querySequence(elem *Element, f *Element) (match bool, err error) {
