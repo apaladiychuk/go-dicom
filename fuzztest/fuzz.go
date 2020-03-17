@@ -3,7 +3,7 @@ package fuzz
 import (
 	"bytes"
 
-	dicom "github.com/grailbio/go-dicom"
+	dicom "github.com/apaladiychuk/go-dicom"
 )
 
 func Fuzz(data []byte) int {

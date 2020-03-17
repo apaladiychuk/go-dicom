@@ -3,7 +3,6 @@ module github.com/apaladiychuk/go-dicom
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/gobwas/glob v0.0.0-20170212200151-51eb1ee00b6d
-	github.com/grailbio/go-dicom v0.0.0-00010101000000-000000000000
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/stretchr/testify v1.2.2
 	golang.org/x/text v0.3.0
@@ -21,7 +20,7 @@ replace github.com/grailbio/bigslice => ../bigslice
 
 replace github.com/grailbio/bio => ../bio
 
-replace github.com/grailbio/go-dicom => ../go-dicom
+replace github.com/apaladiychuk/go-dicom => ../go-dicom
 
 replace github.com/grailbio/go-netdicom => ../go-netdicom
 
