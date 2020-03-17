@@ -127,7 +127,7 @@ func WriteElement(e *dicomio.Encoder, elem *Element) {
 		if err == nil && entry.VR != vr {
 			if dicomtag.GetVRKind(elem.Tag, entry.VR) != dicomtag.GetVRKind(elem.Tag, vr) {
 				if (vr == "US" || vr == "SS") && (entry.VR == "US" || entry.VR == "SS") {
-					dicomlog.Vprintf(1, "dicom.WriteElement: !! Ignore 'SS' 'US' !!  ", dicomtag.DebugString(elem.Tag))
+					dicomlog.Vprintf(1, "%s dicom.WriteElement: !! Ignore 'SS' 'US' !!  ", dicomtag.DebugString(elem.Tag))
 				} else {
 					// The golang repl. is different. We can't continue.
 					e.SetErrorf("dicom.WriteElement: VR value mismatch for tag %s. Element.VR=%v, but DICOM standard defines VR to be %v",
@@ -342,7 +342,17 @@ func WriteElement(e *dicomio.Encoder, elem *Element) {
 			if len(s)%2 == 1 {
 				sube.WriteByte(0)
 			}
-		case "AT", "NA":
+		case "AT":
+			for _, value := range elem.Value {
+				tag, ok := value.(dicomtag.Tag)
+				if !ok {
+					e.SetErrorf("%v: Expect Tag but found  %v", dicomtag.DebugString(elem.Tag), value)
+					continue
+				}
+				sube.WriteUInt16(tag.Group)
+				sube.WriteUInt16(tag.Element)
+			}
+		case "NA":
 			fallthrough
 		default:
 			s := ""
