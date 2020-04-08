@@ -97,6 +97,11 @@ const (
 	// VRDate means the element stores a date string. Use ParseDate() to
 	// parse the date string.
 	VRDate
+	// VRDateTime
+	VRDateTime
+	// VRTime
+	VRTime
+	// VRDateTime  means the element stores a date string. Use ParseDate() to
 	// VRPixelData means the element stores a PixelDataInfo
 	VRPixelData
 )
@@ -111,6 +116,10 @@ func GetVRKind(tag Tag, vr string) VRKind {
 	switch vr {
 	case "DA":
 		return VRDate
+	case "DT":
+		return VRDateTime
+	case "TM":
+		return VRTime
 	case "AT":
 		return VRTagList
 	case "OW", "OB":

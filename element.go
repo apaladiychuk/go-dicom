@@ -92,7 +92,7 @@ func NewElement(tag dicomtag.Tag, values ...interface{}) (*Element, error) {
 	for i, v := range values {
 		var ok bool
 		switch vrKind {
-		case dicomtag.VRStringList, dicomtag.VRDate:
+		case dicomtag.VRStringList, dicomtag.VRDate, dicomtag.VRDateTime, dicomtag.VRTime:
 			_, ok = v.(string)
 		case dicomtag.VRBytes:
 			_, ok = v.([]byte)

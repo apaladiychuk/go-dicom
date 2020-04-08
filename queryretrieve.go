@@ -124,7 +124,7 @@ func isEmptyQuery(f *Element) bool {
 		if len(f.Value[0].([]byte)) == 0 {
 			return true
 		}
-	case dicomtag.VRString, dicomtag.VRDate:
+	case dicomtag.VRString, dicomtag.VRDate, dicomtag.VRDateTime, dicomtag.VRTime:
 		pattern := f.Value[0].(string)
 		if len(pattern) == 0 {
 			return true
